@@ -1,0 +1,45 @@
+body{
+  background: #1E555C;
+  color: white;
+}
+
+#wrapper {
+  width:650px;
+  height:500px;
+  /* margin: auto; */
+  margin-left: 20px;
+  margin-top:400px;
+  /* display:flex; */
+  border: 1px solid black;
+}
+
+#title {
+  text-align: center;
+}
+
+#break-label{
+  display: inline-block;
+  width: 250px;
+  /* background: red; */
+  padding: 25px;
+  text-align: center;
+  border: 2px solid magenta;
+  margin: 0 15px;
+}
+
+#session-label {
+  display: inline-block;
+  width: 250px;
+  /* background: yellowgreen; */
+  padding: 25px;
+  text-align: center;
+  border: 2px solid magenta;
+
+}
+
+#timer-label {
+  margin:auto;
+  width:250px;
+  text-align: center;
+  border: 2px solid magenta; 
+}
