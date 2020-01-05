@@ -1,30 +1,67 @@
 import React from 'react'
 import './App.css'
+import Break from './components/Break'
+import Session from './components/Session'
+import TimeLeft from './components/TimeLeft'
 
 class App extends React.Component {
   state = {
     break: 5,
-    session: 25
+    session: 25,
+    seconds: '00'
   }
+
+  startCount = () => {
+    let timeout = 1000
+    for (let i = 59; i > -1; i--) {
+      setTimeout(() => this.setState({ seconds: '0' + String(i) }), timeout)
+      timeout += 1000
+    }
+    this.setState({session: this.state.session - 1})
+  }
+
+  setCount = ev => {
+    switch (ev.currentTarget.id) {
+      case 'break-increment':
+        this.setState({ break: this.state.break + 1 })
+        break
+      case 'break-decrement':
+        this.state.break > 1 && 
+        this.setState({ break: this.state.break - 1 })
+        break
+      case 'session-increment':
+        this.setState({ session: this.state.session + 1 })
+        break
+      case 'session-decrement':
+        this.state.session > 1 && 
+        this.setState({ session: this.state.session - 1 })
+        break
+      default:
+        break
+    }
+  }
+
+  resetCount = () => {
+    this.setState({ break: 5, session: 25 })
+  }
+
   render() {
     return (
       <div id='wrapper'>
         <h1 id='title'>Pomodoro Clock</h1>
-        <div id='break-label'>
-          <h2>Break Length</h2>
-          <i id='break-increment' className='fas fa-arrow-up'></i>
-          <span id='break-length'>{this.state.break}</span>
-          <i id='break-decrement' className='fas fa-arrow-down'></i>
-        </div>
-        <div id='session-label'>
-          <h2>Session Length</h2>
-          <i id='session-increment' className='fas fa-arrow-up'></i>
-          <span id='session-length'>{this.state.session}</span>
-          <i id='session-decrement' className='fas fa-arrow-down'></i>
-        </div>
-        <div id="timer-label">
-          <h2>Session</h2>
-          <p id="time-left">25:00</p>
+        <Break state={this.state} setCount={this.setCount} />
+        <Session state={this.state} setCount={this.setCount} />
+        <TimeLeft state={this.state} />
+        <div className='controls'>
+          <span id='start_stop' onClick={this.startCount} name='hello'>
+            <i id='play' className='fas fa-play'></i>
+            <i id='pause' className='fas fa-pause'></i>
+          </span>
+          <i
+            id='reset'
+            className='fas fa-sync-alt'
+            onClick={this.resetCount}
+          ></i>
         </div>
       </div>
     )

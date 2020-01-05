@@ -10,7 +10,7 @@ body{
   margin-left: 20px;
   margin-top:400px;
   /* display:flex; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #title {
@@ -23,7 +23,7 @@ body{
   /* background: red; */
   padding: 25px;
   text-align: center;
-  border: 2px solid magenta;
+  /* border: 2px solid magenta; */
   margin: 0 15px;
 }
 
@@ -33,13 +33,34 @@ body{
   /* background: yellowgreen; */
   padding: 25px;
   text-align: center;
-  border: 2px solid magenta;
+  /* border: 2px solid magenta; */
 
 }
 
 #timer-label {
   margin:auto;
+  margin-top: 25px;
   width:250px;
   text-align: center;
-  border: 2px solid magenta; 
+  border: 7px solid #13353a;
+  border-radius: 35px; 
+}
+
+.controls {
+  font-size: 2rem;
+  margin:auto;
+  margin-top: 25px;
+  width: 200px;;
+  /* border: 2px solid magenta;  */
+  text-align: center;
+}
+
+#reset {
+  margin-left: 1.2rem;
+}
+
+.arrow {
+  font-size: 2rem;
+  margin: 0 1.5rem;
+  cursor: pointer;
 }
