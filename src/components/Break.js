@@ -7,13 +7,13 @@ const Break = props => {
       <i
         id='break-increment'
         className='fas fa-arrow-up arrow'
-        onClick={props.setCount}
+        onClick={props.setCounter}
       ></i>
       <span id='break-length'>{props.state.break}</span>
       <i
         id='break-decrement'
         className='fas fa-arrow-down arrow'
-        onClick={props.setCount}
+        onClick={props.setCounter}
       ></i>
     </div>
   )

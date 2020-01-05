@@ -7,13 +7,13 @@ const Session = props => {
       <i
         id='session-increment'
         className='fas fa-arrow-up arrow'
-        onClick={props.setCount}
+        onClick={props.setCounter}
       ></i>
       <span id='session-length'>{props.state.session}</span>
       <i
         id='session-decrement'
         className='fas fa-arrow-down arrow'
-        onClick={props.setCount}
+        onClick={props.setCounter}
       ></i>
     </div>
   )
