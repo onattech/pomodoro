@@ -9,23 +9,31 @@ class App extends React.Component {
   state = {
     break: 5,
     breakSeconds: 0,
-    session: 5,
-    seconds: 300,
-    play: true
+    session: 25,
+    seconds: 1500,
+    play: false
   }
 
   startCount = () => {
-    let timeout = 1000
-    for (let i = 59; i > -1; i--) {
-      setTimeout(() => this.setState({ seconds: this.state.seconds - 1 }), timeout)
-      timeout += 1000
+    let countdown = null
+    
+    if (this.state.play === false){
+      this.setState({ play: true })
+      countdown = setInterval(() => {
+        if (this.state.play === true && this.state.seconds > 0) {
+          this.setState({ seconds: this.state.seconds - 1 })
+        }
+      }, 1000)
+    } else {
+      clearInterval(countdown)
+      this.setState({ play: false })
     }
-    this.setState({ session: this.state.session - 1 })
   }
 
   setCounter = ev => {
     switch (ev.currentTarget.id) {
       case 'break-increment':
+        this.state.break < 60 &&
         this.setState({
           break: this.state.break + 1,
           breakSeconds: this.state.break * 60
@@ -39,6 +47,7 @@ class App extends React.Component {
           })
         break
       case 'session-increment':
+        this.state.session < 60 &&
         this.setState({
           session: this.state.session + 1,
           seconds: (this.state.session + 1) * 60
@@ -57,7 +66,7 @@ class App extends React.Component {
   }
 
   resetCount = () => {
-    this.setState({ break: 5, session: 25 })
+    this.setState({ break: 5, session: 25, seconds: 1500, play: false })
   }
 
   render() {

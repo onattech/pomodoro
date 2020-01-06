@@ -53,14 +53,21 @@ body{
   width: 200px;;
   /* border: 2px solid magenta;  */
   text-align: center;
+
 }
 
 #reset {
   margin-left: 1.2rem;
+  cursor: pointer;
 }
 
 .arrow {
   font-size: 2rem;
   margin: 0 1.5rem;
   cursor: pointer;
+}
+
+#time-left {
+  font-size: 2rem;
+  margin: 1rem;
 }
