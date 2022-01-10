@@ -1,3 +1,3 @@
 # 🛰️ Pomodoro Clock
 ### pomodoro for freecodecamp
-available at https://lokutech.github.io/pomodoro/
+available at https://onattech.github.io/pomodoro/
